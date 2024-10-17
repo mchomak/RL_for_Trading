@@ -1,18 +1,22 @@
 import os
 
 pr_path = os.getcwd()
+os.chdir("..")
+pr_path = os.getcwd()
+
 Path = {
     "data":os.path.join(pr_path, "data"),
     "raw":os.path.join(pr_path, "data", "raw"),
+    "processed":os.path.join(pr_path, "data", "processed"),
+    "dataset": lambda dnum, scaler, col_cnt, tkn_cnt, timeframe: os.path.join(pr_path, "data", "processed", f"dataset_{dnum}D_{scaler}_{col_cnt}cols_{tkn_cnt}tkn_{timeframe}t.csv"),
 
-    "models":os.path.join(pr_path, "models"),
-    "model_dir": lambda mnum: os.path.join(pr_path, "models", f"model_v{mnum}"),
-    "model": lambda mnum, dnum: os.path.join(pr_path, "models", f"model_v{mnum}", f"model_v{mnum}_{dnum}"),
-    "reports": lambda mnum, dnum: os.path.join(pr_path, "models", f"model_v{mnum}", f"report_{mnum}_{dnum}.csv"),
-    "dataset": lambda mnum, dnum: os.path.join(pr_path, "models", f"model_v{mnum}", f"dataset_{mnum}_{dnum}.csv"),
-    "train_data": lambda mnum, dnum: os.path.join(pr_path, "models", f"model_v{mnum}", f"train_{mnum}_{dnum}.csv"),
-    "test_data": lambda mnum, dnum: os.path.join(pr_path, "models", f"model_v{mnum}", f"test_{mnum}_{dnum}.csv"),
-    "train_log": lambda mnum, dnum: os.path.join(pr_path, "models", f"model_v{mnum}", f"train_log_{mnum}_{dnum}.log"),
-    "test_log": lambda mnum, dnum: os.path.join(pr_path, "models", f"model_v{mnum}", f"test_log_{mnum}_{dnum}.log"),
-    "save_model": lambda mnum, dnum: os.path.join(pr_path, "models", f"model_v{mnum}", f"model_weight_{mnum}_{dnum}.h5f"),
+    "models":os.path.join(pr_path, "results", "models"),
+    "model_save": lambda mnum, dnum: os.path.join(pr_path, "results", "models", f"model_{mnum}V_{dnum}D"),
+
+    "plots": lambda mnum, dnum, name: os.path.join(pr_path, "results", "plots", f"plot_{mnum}V_{dnum}D_{name}.html"),
+
+    "reports": lambda mnum, dnum, name: os.path.join(pr_path, "results", "reports", f"report_{mnum}V_{dnum}D_{name}.csv"),
+
+    "train_log": lambda mnum, dnum: os.path.join(pr_path, "results", "logs", f"train_log_{mnum}V_{dnum}D.log"),
+    "test_log": lambda mnum, dnum: os.path.join(pr_path, "results", "logs", f"test_log_{mnum}V_{dnum}D.log"),
 }
