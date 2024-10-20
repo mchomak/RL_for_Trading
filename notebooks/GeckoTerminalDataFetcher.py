@@ -154,7 +154,7 @@ class GTDF:
 
 if __name__ == "__main__":
     tokens = {
-        "PEPE":"0xa43fe16908251ee70ef74718545e4fe6c5ccec9f",
+        # "PEPE":"0xa43fe16908251ee70ef74718545e4fe6c5ccec9f",
         # "BANANA":"0x43de4318b6eb91a7cf37975dbb574396a7b5b5c6",
         # "TRUMP":"0xe4b8583ccb95b25737c016ac88e539d0605949e8",
         # "NEIRO":"0xc555d55279023e732ccd32d812114caf5838fd46",
@@ -207,8 +207,9 @@ if __name__ == "__main__":
         # "GME":"0x2aeee741fa1e21120a21e57db9ee545428e683c9",
         # "FIGHT":"0x63a151d042dc870fb1b3f0c72cbbdd53a85898f6",
         # "KENDU":"0xd9f2a7471d1998c69de5cae6df5d3f070f01df9f",
+        "MSTR":"0x318ba85ca49a3b12d3cf9c72cc72b29316971802"
 
     }
     print(len(tokens))
-    gtdf = GTDF(tokens=tokens, full_path = "D:\\PythonScripts\\RL_for_Trading\\data\\data_seregga", network= "eth", timeframe="minute", aggregate=1, limit= 1)
+    gtdf = GTDF(tokens=tokens, full_path = "D:\\PythonScripts\\RL_for_Trading\\data\\data_seregga", network= "eth", timeframe="minute", aggregate=5, limit= 288)
     gtdf.get_tokens()
